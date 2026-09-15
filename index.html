@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#05070d"
+    >
+
+    <title>For My Love ♡</title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        body {
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    #111b2b 0%,
+                    #080c15 42%,
+                    #030508 100%
+                );
+
+            color: white;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+
+        /* =========================================================
+           BACKGROUND
+        ========================================================= */
+
+        .background-glow {
+
+            position: fixed;
+
+            width: 110vw;
+            height: 110vh;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(71, 107, 190, 0.15) 0%,
+                    rgba(35, 52, 92, 0.08) 32%,
+                    transparent 68%
+                );
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* =========================================================
+           STARS
+        ========================================================= */
+
+        #stars {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+            height: 2px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            opacity: 0.35;
+
+            animation:
+                twinkle
+                3s
+                ease-in-out
+                infinite;
+        }
+
+
+        .star.large {
+
+            width: 3px;
+            height: 3px;
+
+            box-shadow:
+                0 0 5px
+                rgba(255,255,255,0.5);
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.12;
+
+                transform:
+                    scale(0.7);
+            }
+
+            50% {
+
+                opacity: 0.8;
+
+                transform:
+                    scale(1.5);
+            }
+        }
+
+
+        /* =========================================================
+           FLOWER FIELD
+        ========================================================= */
+
+        #flowerField {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 5;
+        }
+
+
+        /* =========================================================
+           INDIVIDUAL FLOWER
+        ========================================================= */
+
+        .flower {
+
+            position: absolute;
+
+            transform-origin:
+                center bottom;
+
+            animation:
+                gentleSway
+                var(--sway-time)
+                ease-in-out
+                infinite;
+
+            animation-delay:
+                var(--delay);
+
+            opacity:
+                var(--opacity);
+
+            z-index:
+                var(--layer);
+        }
+
+
+        @keyframes gentleSway {
+
+            0%,
+            100% {
+
+                transform:
+                    rotate(
+                        calc(
+                            var(--rotation) - 2deg
+                        )
+                    );
+            }
+
+            50% {
+
+                transform:
+                    rotate(
+                        calc(
+                            var(--rotation) + 2deg
+                        )
+                    );
+            }
+        }
+
+
+        /* =========================================================
+           STEM
+        ========================================================= */
+
+        .stem {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom: 0;
+
+            width:
+                var(--stem-width);
+
+            height:
+                var(--stem-height);
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #112718,
+                    #3f7540,
+                    #17331d
+                );
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================================================
+           LEAVES
+        ========================================================= */
+
+        .leaf {
+
+            position: absolute;
+
+            width:
+                var(--leaf-width);
+
+            height:
+                var(--leaf-height);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #17391d,
+                    #51894d
+                );
+
+            border-radius:
+                100% 0 100% 0;
+
+            opacity: 0.85;
+        }
+
+
+        .leaf.left {
+
+            left: 50%;
+
+            bottom:
+                var(--leaf-bottom);
+
+            transform:
+                translateX(-100%)
+                rotate(-25deg);
+        }
+
+
+        .leaf.right {
+
+            left: 50%;
+
+            bottom:
+                var(--leaf-bottom);
+
+            transform:
+                rotate(205deg);
+        }
+
+
+        /* =========================================================
+           FLOWER HEAD
+        ========================================================= */
+
+        .head {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom:
+                var(--stem-height);
+
+            width:
+                var(--flower-size);
+
+            height:
+                var(--flower-size);
+
+            transform:
+                translateX(-50%);
+
+            z-index: 4;
+        }
+
+
+        /* =========================================================
+           BLUE CORNFLOWER
+        ========================================================= */
+
+        .blue .head {
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    #e3c56d 0 8%,
+                    #a8843c 9% 14%,
+                    transparent 15%
+                ),
+
+                conic-gradient(
+
+                    from 0deg,
+
+                    #396dcc 0deg 11deg,
+                    #78a6f1 11deg 21deg,
+
+                    #3e72d6 21deg 31deg,
+                    #6f9beb 31deg 41deg,
+
+                    #315fc1 41deg 51deg,
+                    #7da9f4 51deg 61deg,
+
+                    #3c6ed2 61deg 71deg,
+                    #709cef 71deg 81deg,
+
+                    #3566c7 81deg 91deg,
+                    #78a4ef 91deg 101deg,
+
+                    #3b6ed2 101deg 111deg,
+                    #6d9aec 111deg 121deg,
+
+                    #315fc2 121deg 131deg,
+                    #7aa7f3 131deg 141deg,
+
+                    #3d70d3 141deg 151deg,
+                    #6f9ced 151deg 161deg,
+
+                    #3565c5 161deg 171deg,
+                    #7ba8f4 171deg 181deg,
+
+                    #3c6ed0 181deg 191deg,
+                    #6f9bed 191deg 201deg,
+
+                    #315fc2 201deg 211deg,
+                    #7aa7f2 211deg 221deg,
+
+                    #3b6dd0 221deg 231deg,
+                    #709ced 231deg 241deg,
+
+                    #3565c6 241deg 251deg,
+                    #7ca8f3 251deg 261deg,
+
+                    #3d70d2 261deg 271deg,
+                    #6f9ced 271deg 281deg,
+
+                    #3565c6 281deg 291deg,
+                    #79a5f1 291deg 301deg,
+
+                    #3b6ed0 301deg 311deg,
+                    #6e9bec 311deg 321deg,
+
+                    #3565c5 321deg 331deg,
+                    #7ca8f3 331deg 341deg,
+
+                    #3d70d1 341deg 351deg,
+                    #72a0ee 351deg 360deg
+                );
+
+            clip-path:
+                polygon(
+
+                    50% 0%,
+
+                    59% 13%,
+                    75% 4%,
+
+                    78% 22%,
+                    97% 28%,
+
+                    86% 43%,
+                    100% 57%,
+
+                    80% 63%,
+                    77% 84%,
+
+                    60% 78%,
+                    50% 100%,
+
+                    40% 79%,
+                    22% 89%,
+
+                    20% 68%,
+                    2% 61%,
+
+                    14% 45%,
+                    0% 29%,
+
+                    20% 24%,
+                    24% 6%,
+
+                    40% 16%
+                );
+
+            filter:
+                drop-shadow(
+                    0 0 9px
+                    rgba(70, 120, 240, 0.45)
+                );
+        }
+
+
+        /* =========================================================
+           PINK FLOWER
+        ========================================================= */
+
+        .pink .head {
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    #f3d0dc 0 8%,
+                    #bd718e 9% 14%,
+                    transparent 15%
+                ),
+
+                conic-gradient(
+
+                    from 0deg,
+
+                    #d87fa3 0deg 18deg,
+                    #f1b9cc 18deg 36deg,
+
+                    #dc86a8 36deg 54deg,
+                    #f5c2d3 54deg 72deg,
+
+                    #d981a4 72deg 90deg,
+                    #f0b7cb 90deg 108deg,
+
+                    #da82a5 108deg 126deg,
+                    #f4bfd1 126deg 144deg,
+
+                    #d980a3 144deg 162deg,
+                    #f2bbce 162deg 180deg,
+
+                    #d980a4 180deg 198deg,
+                    #f4bfd1 198deg 216deg,
+
+                    #da82a6 216deg 234deg,
+                    #f1b8cb 234deg 252deg,
+
+                    #d981a4 252deg 270deg,
+                    #f4c0d1 270deg 288deg,
+
+                    #da82a6 288deg 306deg,
+                    #f0b7ca 306deg 324deg,
+
+                    #d980a4 324deg 342deg,
+                    #f4bfd1 342deg 360deg
+                );
+
+            clip-path:
+                polygon(
+
+                    50% 0%,
+
+                    63% 14%,
+                    80% 5%,
+
+                    83% 24%,
+                    100% 31%,
+
+                    85% 47%,
+                    97% 64%,
+
+                    77% 70%,
+                    73% 91%,
+
+                    56% 81%,
+                    44% 100%,
+
+                    35% 80%,
+                    15% 91%,
+
+                    20% 70%,
+                    0% 63%,
+
+                    15% 47%,
+                    1% 31%,
+
+                    20% 24%,
+                    23% 6%,
+
+                    40% 16%
+                );
+
+            filter:
+                drop-shadow(
+                    0 0 8px
+                    rgba(235, 130, 176, 0.35)
+                );
+        }
+
+
+        /* =========================================================
+           MESSAGE BACKDROP
+        ========================================================= */
+
+        .message-area {
+
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            width:
+                min(94vw, 620px);
+
+            height:
+                min(70vh, 600px);
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(4, 7, 13, 0.78) 0%,
+                    rgba(4, 7, 13, 0.55) 42%,
+                    rgba(4, 7, 13, 0.12) 70%,
+                    transparent 100%
+                );
+
+            filter:
+                blur(2px);
+
+            z-index: 20;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           MESSAGE
+        ========================================================= */
+
+        .message {
+
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width:
+                min(88vw, 560px);
+
+            text-align: center;
+
+            z-index: 30;
+
+            padding:
+                25px 12px;
+        }
+
+
+        .message h1 {
+
+            font-size:
+                clamp(
+                    44px,
+                    11vw,
+                    78px
+                );
+
+            font-weight: 400;
+
+            letter-spacing: 1px;
+
+            color: #f8f2e8;
+
+            text-shadow:
+                0 3px 20px rgba(0,0,0,0.9),
+                0 0 30px rgba(255,255,255,0.08);
+
+            margin-bottom: 22px;
+        }
+
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            margin-bottom: 25px;
+
+            color: #88a7ed;
+
+            font-size: 18px;
+
+            text-shadow:
+                0 0 12px
+                rgba(100,150,255,0.4);
+        }
+
+
+        .line {
+
+            width: 58px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(130,160,225,0.65)
+                );
+        }
+
+
+        .line.right {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(130,160,225,0.65),
+                    transparent
+                );
+        }
+
+
+        .message p {
+
+            color: #eeeeee;
+
+            font-size:
+                clamp(
+                    15px,
+                    4vw,
+                    18px
+                );
+
+            line-height: 1.85;
+
+            text-shadow:
+                0 2px 12px #000,
+                0 0 20px #000;
+
+            margin-bottom: 12px;
+        }
+
+
+        .message .final {
+
+            margin-top: 23px;
+
+            color: #f0b4cb;
+
+            font-size:
+                clamp(
+                    16px,
+                    4vw,
+                    19px
+                );
+
+            font-style: normal;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================================
+           FLOATING PETALS
+        ========================================================= */
+
+        #petals {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 15;
+        }
+
+
+        .petal {
+
+            position: absolute;
+
+            bottom: -30px;
+
+            font-size:
+                var(--size);
+
+            color:
+                var(--color);
+
+            opacity: 0;
+
+            animation:
+                floatPetal
+                var(--duration)
+                linear
+                forwards;
+        }
+
+
+        @keyframes floatPetal {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        0,
+                        0
+                    )
+                    rotate(0deg);
+            }
+
+            12% {
+
+                opacity: 0.55;
+            }
+
+            70% {
+
+                opacity: 0.35;
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        var(--drift),
+                        -110vh
+                    )
+                    rotate(220deg);
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                background:
+                    radial-gradient(
+                        ellipse at center,
+                        #101a29 0%,
+                        #070b12 48%,
+                        #020407 100%
+                    );
+            }
+
+
+            .message-area {
+
+                width: 110vw;
+
+                height: 67vh;
+            }
+
+
+            .message {
+
+                width: 88vw;
+
+                top: 48%;
+
+                padding:
+                    20px 5px;
+            }
+
+
+            .message h1 {
+
+                margin-bottom: 17px;
+
+                font-size: 48px;
+            }
+
+
+            .divider {
+
+                margin-bottom: 20px;
+            }
+
+
+            .line {
+
+                width: 42px;
+            }
+
+
+            .message p {
+
+                font-size: 15px;
+
+                line-height: 1.75;
+            }
+
+
+            .message .final {
+
+                margin-top: 20px;
+
+                font-size: 17px;
+            }
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================= */
+
+        @media (max-height: 700px) {
+
+            .message {
+
+                top: 47%;
+            }
+
+
+            .message h1 {
+
+                font-size: 43px;
+
+                margin-bottom: 12px;
+            }
+
+
+            .divider {
+
+                margin-bottom: 14px;
+            }
+
+
+            .message p {
+
+                font-size: 14px;
+
+                line-height: 1.55;
+
+                margin-bottom: 7px;
+            }
+
+
+            .message .final {
+
+                margin-top: 14px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================== -->
+
+    <div class="background-glow"></div>
+
+    <div id="stars"></div>
+
+
+    <!-- =========================================================
+         FLOWERS
+    ========================================================== -->
+
+    <div id="flowerField"></div>
+
+
+    <!-- =========================================================
+         MESSAGE BACKDROP
+    ========================================================== -->
+
+    <div class="message-area"></div>
+
+
+    <!-- =========================================================
+         MESSAGE
+    ========================================================== -->
+
+    <div class="message">
+
+        <h1>
+            For My Love
+        </h1>
+
+
+        <div class="divider">
+
+            <span class="line"></span>
+
+            ♡
+
+            <span class="line right"></span>
+
+        </div>
+
+
+        <p>
+            I planted these flowers just for you 💙
+        </p>
+
+
+        <p>
+            Some are pink, some are blue,
+        </p>
+
+
+        <p>
+            but every one reminded me of you.
+        </p>
+
+
+        <p class="final">
+            I hope you like them.
+        </p>
+
+    </div>
+
+
+    <!-- =========================================================
+         FLOATING PETALS
+    ========================================================== -->
+
+    <div id="petals"></div>
+
+
+    <script>
+
+
+        /* =========================================================
+           STAR GENERATOR
+        ========================================================= */
+
+        const stars =
+            document.getElementById("stars");
+
+
+        for (
+            let i = 0;
+            i < 110;
+            i++
+        ) {
+
+            const star =
+                document.createElement("div");
+
+
+            star.classList.add("star");
+
+
+            if (
+                Math.random() > 0.86
+            ) {
+
+                star.classList.add("large");
+            }
+
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+
+            star.style.animationDelay =
+                Math.random() * 5 + "s";
+
+
+            star.style.animationDuration =
+                2 +
+                Math.random() * 5 +
+                "s";
+
+
+            stars.appendChild(star);
+        }
+
+
+
+        /* =========================================================
+           FLOWER GENERATOR
+        ========================================================== */
+
+        const flowerField =
+            document.getElementById(
+                "flowerField"
+            );
+
+
+        /*
+            We deliberately use LOTS of flowers.
+
+            The amount automatically changes
+            depending on the phone/desktop size.
+        */
+
+        const mobile =
+            window.innerWidth <= 600;
+
+
+        const flowerCount =
+            mobile
+                ? 48
+                : 68;
+
+
+        for (
+            let i = 0;
+            i < flowerCount;
+            i++
+        ) {
+
+            const flower =
+                document.createElement("div");
+
+
+            flower.classList.add(
+                "flower"
+            );
+
+
+            /* -----------------------------------------------------
+               RANDOM TYPE
+            ----------------------------------------------------- */
+
+            const isPink =
+                Math.random() < 0.32;
+
+
+            flower.classList.add(
+                isPink
+                    ? "pink"
+                    : "blue"
+            );
+
+
+            /* -----------------------------------------------------
+               RANDOM SIZE
+            ----------------------------------------------------- */
+
+            let size;
+
+
+            const random =
+                Math.random();
+
+
+            if (random < 0.25) {
+
+                size =
+                    mobile
+                        ? 26 + Math.random() * 18
+                        : 30 + Math.random() * 22;
+
+            } else if (random < 0.75) {
+
+                size =
+                    mobile
+                        ? 34 + Math.random() * 25
+                        : 40 + Math.random() * 30;
+
+            } else {
+
+                size =
+                    mobile
+                        ? 52 + Math.random() * 25
+                        : 58 + Math.random() * 38;
+            }
+
+
+            /* -----------------------------------------------------
+               RANDOM HEIGHT
+            ----------------------------------------------------- */
+
+            const stemHeight =
+                mobile
+                    ? 75 + Math.random() * 270
+                    : 90 + Math.random() * 420;
+
+
+            /* -----------------------------------------------------
+               RANDOM POSITION
+            ----------------------------------------------------- */
+
+            const left =
+                Math.random() * 104 - 2;
+
+
+            /*
+                Keep some flowers away from the
+                exact centre so the writing remains readable.
+            */
+
+            let adjustedLeft =
+                left;
+
+
+            const centreDistance =
+                Math.abs(
+                    left - 50
+                );
+
+
+            if (
+                centreDistance < 18 &&
+                Math.random() < 0.65
+            ) {
+
+                adjustedLeft =
+                    left < 50
+                        ? left - 18
+                        : left + 18;
+            }
+
+
+            /* -----------------------------------------------------
+               RANDOM VISUAL VARIABLES
+            ----------------------------------------------------- */
+
+            flower.style.left =
+                adjustedLeft + "%";
+
+
+            flower.style.bottom =
+                (
+                    -20 +
+                    Math.random() * 35
+                ) + "%";
+
+
+            flower.style.setProperty(
+                "--flower-size",
+                size + "px"
+            );
+
+
+            flower.style.setProperty(
+                "--stem-height",
+                stemHeight + "px"
+            );
+
+
+            flower.style.setProperty(
+                "--stem-width",
+                (
+                    2 +
+                    Math.random() * 2
+                ) + "px"
+            );
+
+
+            flower.style.setProperty(
+                "--leaf-width",
+                (
+                    35 +
+                    Math.random() * 35
+                ) + "px"
+            );
+
+
+            flower.style.setProperty(
+                "--leaf-height",
+                (
+                    11 +
+                    Math.random() * 8
+                ) + "px"
+            );
+
+
+            flower.style.setProperty(
+                "--leaf-bottom",
+                (
+                    50 +
+                    Math.random() * 150
+                ) + "px"
+            );
+
+
+            flower.style.setProperty(
+                "--rotation",
+                (
+                    -7 +
+                    Math.random() * 14
+                ) + "deg"
+            );
+
+
+            flower.style.setProperty(
+                "--sway-time",
+                (
+                    4 +
+                    Math.random() * 5
+                ) + "s"
+            );
+
+
+            flower.style.setProperty(
+                "--delay",
+                (
+                    Math.random() * -6
+                ) + "s"
+            );
+
+
+            flower.style.setProperty(
+                "--opacity",
+                (
+                    0.35 +
+                    Math.random() * 0.6
+                )
+            );
+
+
+            flower.style.setProperty(
+                "--layer",
+                Math.floor(
+                    6 +
+                    Math.random() * 8
+                )
+            );
+
+
+            /* -----------------------------------------------------
+               STEM
+            ----------------------------------------------------- */
+
+            const stem =
+                document.createElement(
+                    "div"
+                );
+
+            stem.classList.add(
+                "stem"
+            );
+
+            flower.appendChild(stem);
+
+
+            /* -----------------------------------------------------
+               LEAVES
+            ----------------------------------------------------- */
+
+            if (
+                Math.random() > 0.18
+            ) {
+
+                const leafLeft =
+                    document.createElement(
+                        "div"
+                    );
+
+                leafLeft.classList.add(
+                    "leaf",
+                    "left"
+                );
+
+                flower.appendChild(
+                    leafLeft
+                );
+            }
+
+
+            if (
+                Math.random() > 0.25
+            ) {
+
+                const leafRight =
+                    document.createElement(
+                        "div"
+                    );
+
+                leafRight.classList.add(
+                    "leaf",
+                    "right"
+                );
+
+                flower.appendChild(
+                    leafRight
+                );
+            }
+
+
+            /* -----------------------------------------------------
+               FLOWER HEAD
+            ----------------------------------------------------- */
+
+            const head =
+                document.createElement(
+                    "div"
+                );
+
+            head.classList.add(
+                "head"
+            );
+
+            flower.appendChild(head);
+
+
+            flowerField.appendChild(
+                flower
+            );
+        }
+
+
+
+        /* =========================================================
+           FLOATING PETALS
+        ========================================================== */
+
+        const petals =
+            document.getElementById(
+                "petals"
+            );
+
+
+        function createPetal() {
+
+            const petal =
+                document.createElement(
+                    "div"
+                );
+
+
+            petal.classList.add(
+                "petal"
+            );
+
+
+            const pink =
+                Math.random() > 0.48;
+
+
+            petal.textContent =
+                pink
+                    ? "✿"
+                    : "✦";
+
+
+            petal.style.left =
+                Math.random() * 100 + "%";
+
+
+            petal.style.setProperty(
+                "--color",
+                pink
+                    ? "#e5a5bf"
+                    : "#7297e4"
+            );
+
+
+            petal.style.setProperty(
+                "--size",
+                (
+                    10 +
+                    Math.random() * 12
+                ) + "px"
+            );
+
+
+            petal.style.setProperty(
+                "--duration",
+                (
+                    7 +
+                    Math.random() * 6
+                ) + "s"
+            );
+
+
+            petal.style.setProperty(
+                "--drift",
+                (
+                    -100 +
+                    Math.random() * 200
+                ) + "px"
+            );
+
+
+            petals.appendChild(
+                petal
+            );
+
+
+            setTimeout(
+                () => {
+                    petal.remove();
+                },
+                14000
+            );
+        }
+
+
+        /* Start with several */
+
+        for (
+            let i = 0;
+            i < 10;
+            i++
+        ) {
+
+            setTimeout(
+                createPetal,
+                i * 650
+            );
+        }
+
+
+        /* Keep them coming */
+
+        setInterval(
+            createPetal,
+            1300
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

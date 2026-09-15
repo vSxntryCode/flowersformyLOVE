@@ -1,0 +1,757 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #05070c;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background-glow {
+    position: fixed;
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(45, 85, 170, 0.16) 0%,
+            rgba(40, 50, 110, 0.08) 30%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: white;
+    border-radius: 50%;
+
+    opacity: 0.5;
+
+    animation:
+        twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.5);
+    }
+}
+
+
+/* =========================
+   GARDEN
+========================= */
+
+.garden {
+    position: fixed;
+    bottom: -20px;
+    left: 0;
+
+    width: 100%;
+    height: 55vh;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   GENERAL FLOWER
+========================= */
+
+.flower {
+    position: absolute;
+    bottom: 0;
+
+    width: 100px;
+    height: 300px;
+
+    transform-origin: bottom center;
+
+    animation:
+        sway 5s ease-in-out infinite;
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+
+/* =========================
+   STEM
+========================= */
+
+.stem {
+    position: absolute;
+
+    width: 4px;
+    height: 230px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to right,
+            #18351f,
+            #3c7744,
+            #193720
+        );
+
+    border-radius: 4px;
+}
+
+
+/* =========================
+   LEAVES
+========================= */
+
+.leaf {
+    position: absolute;
+
+    width: 65px;
+    height: 18px;
+
+    background: linear-gradient(
+        90deg,
+        #1b4524,
+        #4e8e50
+    );
+
+    border-radius: 100% 0 100% 0;
+}
+
+.leaf-left {
+    left: 5px;
+    bottom: 90px;
+
+    transform:
+        rotate(-25deg);
+}
+
+.leaf-right {
+    right: 4px;
+    bottom: 135px;
+
+    transform:
+        rotate(205deg);
+}
+
+
+/* =========================
+   FLOWER BLOOMS
+========================= */
+
+.bloom {
+    position: absolute;
+
+    left: 50%;
+    top: 20px;
+
+    transform:
+        translateX(-50%);
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   BLUE CORNFLOWER
+========================= */
+
+.bloom.blue {
+    background:
+        radial-gradient(
+            circle at center,
+            #e8c979 0 7px,
+            transparent 8px
+        ),
+
+        conic-gradient(
+            from 0deg,
+
+            #467ee0 0deg 20deg,
+            transparent 20deg 30deg,
+
+            #6c9cf0 30deg 50deg,
+            transparent 50deg 60deg,
+
+            #356ed0 60deg 80deg,
+            transparent 80deg 90deg,
+
+            #719df0 90deg 110deg,
+            transparent 110deg 120deg,
+
+            #416fd0 120deg 140deg,
+            transparent 140deg 150deg,
+
+            #6e9aed 150deg 170deg,
+            transparent 170deg 180deg,
+
+            #3b70d5 180deg 200deg,
+            transparent 200deg 210deg,
+
+            #78a5f4 210deg 230deg,
+            transparent 230deg 240deg,
+
+            #416fd0 240deg 260deg,
+            transparent 260deg 270deg,
+
+            #6c98ed 270deg 290deg,
+            transparent 290deg 300deg,
+
+            #3d6fd0 300deg 320deg,
+            transparent 320deg 330deg,
+
+            #6e9bf0 330deg 350deg,
+            transparent 350deg 360deg
+        );
+
+    clip-path: polygon(
+        50% 0%,
+        61% 15%,
+        77% 8%,
+        82% 25%,
+        100% 29%,
+        88% 45%,
+        98% 61%,
+        79% 66%,
+        75% 87%,
+        59% 78%,
+        50% 100%,
+        40% 79%,
+        22% 88%,
+        20% 68%,
+        2% 61%,
+        12% 44%,
+        0% 28%,
+        20% 24%,
+        24% 8%,
+        40% 16%
+    );
+
+    filter:
+        drop-shadow(0 0 9px rgba(73, 129, 255, 0.45));
+}
+
+
+/* =========================
+   PINK FLOWER
+========================= */
+
+.bloom.pink {
+    width: 65px;
+    height: 65px;
+
+    background:
+        radial-gradient(
+            circle,
+            #f4c2d4 0 8px,
+            transparent 9px
+        ),
+
+        conic-gradient(
+            from 0deg,
+
+            #e995b5 0deg 35deg,
+            #f3bfd2 35deg 65deg,
+            #d981a5 65deg 95deg,
+            #f2bfd0 95deg 125deg,
+            #df8eae 125deg 155deg,
+            #f5c5d6 155deg 185deg,
+            #dd8aaa 185deg 215deg,
+            #f2bfd0 215deg 245deg,
+            #df8cac 245deg 275deg,
+            #f3c2d3 275deg 305deg,
+            #dc87a9 305deg 335deg,
+            #f4c4d6 335deg 360deg
+        );
+
+    clip-path: polygon(
+        50% 0%,
+        63% 15%,
+        80% 5%,
+        82% 25%,
+        100% 33%,
+        84% 48%,
+        95% 66%,
+        76% 70%,
+        72% 92%,
+        55% 80%,
+        43% 100%,
+        35% 80%,
+        15% 91%,
+        20% 70%,
+        0% 63%,
+        15% 47%,
+        1% 31%,
+        20% 25%,
+        23% 6%,
+        40% 16%
+    );
+
+    filter:
+        drop-shadow(0 0 8px rgba(255, 140, 190, 0.25));
+}
+
+
+/* =========================
+   FLOWER POSITIONS
+========================= */
+
+.flower-1 {
+    left: 4%;
+    height: 360px;
+    animation-delay: -1s;
+}
+
+.flower-2 {
+    left: 17%;
+    height: 300px;
+    animation-delay: -3s;
+}
+
+.flower-3 {
+    right: 15%;
+    height: 350px;
+    animation-delay: -2s;
+}
+
+.flower-4 {
+    right: 3%;
+    height: 290px;
+    animation-delay: -4s;
+}
+
+.flower-5 {
+    left: 29%;
+    height: 270px;
+    animation-delay: -2s;
+}
+
+.flower-6 {
+    left: 42%;
+    height: 330px;
+    animation-delay: -4s;
+}
+
+.flower-7 {
+    right: 30%;
+    height: 260px;
+    animation-delay: -1s;
+}
+
+.flower-8 {
+    right: 42%;
+    height: 310px;
+    animation-delay: -3s;
+}
+
+.flower-9 {
+    left: 11%;
+    height: 210px;
+    transform: scale(0.6);
+    opacity: 0.6;
+}
+
+.flower-10 {
+    right: 10%;
+    height: 220px;
+    transform: scale(0.65);
+    opacity: 0.6;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(90%, 600px);
+
+    text-align: center;
+
+    z-index: 20;
+
+    padding: 30px 20px;
+}
+
+
+/* tiny heading */
+
+.tiny-text {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    color: #d8cfae;
+
+    margin-bottom: 18px;
+
+    opacity: 0.85;
+}
+
+
+/* main title */
+
+h1 {
+    font-size: clamp(50px, 10vw, 82px);
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color: #f4eee2;
+
+    text-shadow:
+        0 0 25px rgba(255, 255, 255, 0.08);
+
+    margin-bottom: 12px;
+}
+
+
+/* divider */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    color: #8ca8e8;
+
+    font-size: 18px;
+
+    margin-bottom: 25px;
+}
+
+.divider span {
+    display: block;
+
+    width: 55px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(140, 168, 232, 0.6)
+        );
+}
+
+.divider span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(140, 168, 232, 0.6),
+            transparent
+        );
+}
+
+
+/* message */
+
+.message p {
+    color: #dedede;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 2px 10px black;
+}
+
+.final-line {
+    color: #e9b5c9 !important;
+
+    font-style: italic;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+#loveButton {
+    margin-top: 20px;
+
+    padding: 11px 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: #eee;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    backdrop-filter: blur(5px);
+}
+
+#loveButton:hover {
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    border-color:
+        rgba(255, 255, 255, 0.4);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.popup {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 100;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.35s ease;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    position: relative;
+
+    width: min(90%, 400px);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101522,
+            #080b12
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.7);
+
+    transform: scale(0.85);
+
+    transition: 0.35s ease;
+}
+
+.popup.show .popup-box {
+    transform: scale(1);
+}
+
+.popup-flower {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    filter:
+        drop-shadow(0 0 15px rgba(80, 130, 255, 0.5));
+}
+
+.popup-box h2 {
+    font-size: 28px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+.popup-box p {
+    color: #ccc;
+
+    line-height: 1.7;
+}
+
+.popup-heart {
+    color: #e8a8c1;
+
+    font-size: 25px;
+
+    margin-top: 15px;
+}
+
+.close {
+    position: absolute;
+
+    top: 12px;
+    right: 16px;
+
+    border: none;
+
+    background: none;
+
+    color: #aaa;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .message {
+        top: 47%;
+    }
+
+    .tiny-text {
+        font-size: 8px;
+        letter-spacing: 4px;
+    }
+
+    .message p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .garden {
+        height: 45vh;
+    }
+
+    .flower-1 {
+        left: -8%;
+    }
+
+    .flower-2 {
+        left: 3%;
+    }
+
+    .flower-3 {
+        right: 2%;
+    }
+
+    .flower-4 {
+        right: -12%;
+    }
+
+    .flower-5,
+    .flower-7 {
+        opacity: 0.7;
+    }
+
+    .flower-6,
+    .flower-8 {
+        opacity: 0.45;
+    }
+}
